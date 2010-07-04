@@ -10,7 +10,7 @@
 //
 // ==UserScript==
 // @name        CPAN SyntaxHighlighter Classic 
-// @version     1.0.0  (02. Jul 20010 )
+// @version     1.0.1  (04. Jul 20010 )
 // @author      Matthias, Ries
 // @namespace   http://github.com/matthiasries/cpan-greasemoney
 // @description SyntaxHighlight the search.cpan.org pages. Classic-Theme
@@ -19,8 +19,11 @@
 
 (
 function() {
-	
-
+        
+        var uri_to_scripts = "http://alexgorbatchev.com/pub/sh/2.0.320/scripts/";
+	var uri_to_styles  = "http://alexgorbatchev.com/pub/sh/2.0.320/styles/";
+        
+                
         var pres = document.getElementsByTagName("pre");
         
 	for ( c in pres ){
@@ -32,13 +35,13 @@ function() {
       var link  = document.createElement('link');
       link.rel  = 'stylesheet';
       link.type = 'text/css';
-      link.href = "http://alexgorbatchev.com/pub/sh/2.0.320/styles/shCore.css";
+      link.href = uri_to_styles + "shCore.css";
       head.appendChild(link);
       
       var link2  = document.createElement('link');
       link2.rel  = 'stylesheet';
       link2.type = 'text/css';
-      link2.href = "http://alexgorbatchev.com/pub/sh/2.0.320/styles/shThemeDefault.css";
+      link2.href = uri_to_styles + "shThemeDefault.css";
       head.appendChild(link2);
       
       var link3  = document.createElement('style');
@@ -78,11 +81,11 @@ function() {
 
       var sc  =  document.createElement('script');
       sc.type =  'text/javascript';
-      sc.src  =  "http://alexgorbatchev.com/pub/sh/2.0.320/scripts/shCore.js";
+      sc.src  =  uri_to_scripts + "shCore.js";
       
       var sc2  = document.createElement('script');
       sc2.type = 'text/javascript';
-      sc2.src  = "http://alexgorbatchev.com/pub/sh/2.0.320/scripts/shBrushPerl.js";
+      sc2.src  = uri_to_scripts + "shBrushPerl.js";
             
       head.appendChild(sc);
       head.appendChild(sc2);
@@ -93,7 +96,7 @@ function() {
         sc3.type = 'text/javascript';
 	sc3.innerHTML = "\
 	function initSyntaxHighlighter() {\
-	SyntaxHighlighter.config.clipboardSwf = 'http://alexgorbatchev.com/pub/sh/2.0.320/scripts/clipboard.swf';\
+	SyntaxHighlighter.config.clipboardSwf = '" + uri_to_scripts + "clipboard.swf';\
 	SyntaxHighlighter.all();\
 	}\
 	if ('function' == typeof(mtAttachEvent)) mtAttachEvent('load',initSyntaxHighlighter);\
