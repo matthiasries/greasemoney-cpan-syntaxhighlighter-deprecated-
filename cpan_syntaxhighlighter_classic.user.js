@@ -10,7 +10,7 @@
 //
 // ==UserScript==
 // @name        CPAN SyntaxHighlighter Classic 
-// @version     1.0.1  (04. Jul 20010 )
+// @version     1.0.4  (19. Aug 20010 )
 // @author      Matthias, Ries
 // @namespace   http://github.com/matthiasries/cpan-greasemoney
 // @description SyntaxHighlight the search.cpan.org pages. Classic-Theme
@@ -46,36 +46,47 @@ function() {
       
       var link3  = document.createElement('style');
       link3.setAttribute("type", "text/css");
-      var csst = document.createTextNode("\
-      div .lines {\
-           border: 1px solid rgb(153, 153, 136) ! important;\
-           padding: 5px !important;\
-           }\
-           .syntaxhighlighter {\
-              background-color:#EEEEEE none repeat scroll 0 0  !important;\
-              overflow:hidden !important;\
-              font-size:1em !important;\
-              margin:1em 0 !important;\
-              position:relative !important;\
-              width:100% !important;\
-              }\
-              .syntaxhighlighter .line.alt1 .content { background-color:#FFFFFF !important; }     \
-              .syntaxhighlighter .line .content {\
-              border-left:3px solid #006699 !important;\
-              color:#000000 !important;\
-              }\
-              .syntaxhighlighter .line.alt2 .content {\
-              background-color:transparent  !important;\
-              }\
-              .syntaxhighlighter .line.alt1 .content {\
-              background-color:transparent  !important;\
-              }\
-              .syntaxhighlighter .line .content {\
-              border:medium none  !important;\
-              color:#000000 !important;\
-              padding:10px;\
-              }\
-");
+      var csst = document.createTextNode( 
+         ' div .lines { \n'
+        +'   border: 1px solid rgb(153, 153, 136) ! important; \n'
+        +'   padding: 5px !important;\n'
+        +'   }\n'
+        +'   .syntaxhighlighter {\n'
+            +'  background-color:#EEEEEE !important; \n'
+            +'  overflow:hidden !important;\n'
+            +'  font-size:1em !important;\n'
+            +'  margin:1em 0 !important;\n'
+            +'  position:relative !important;\n'
+            +'  width:100% !important;\n'
+            +'  }\n'
+            +'.syntaxhighlighter .line.alt1 .content { \n'
+            +'   background-color:#EEEEEE !important; \n'
+            +'}\n'
+            +'.syntaxhighlighter .line .content {  \n'
+            +'  border:1px solid #999988 !important; \n'
+            +'  color:#000000 !important;\n'
+            +'  }\n'
+            +'  .syntaxhighlighter .line.alt2 .content {\n'
+            +'  background-color:transparent  !important;\n'
+            +'  }\n'
+            +'  .syntaxhighlighter .line.alt1 .content {\n'
+            +'  background-color:transparent  !important;\n'
+            +'  }\n'
+            +'  .syntaxhighlighter .line .content {\n'
+            +'  border:medium none  !important;\n'
+            +'  color:#000000 !important;\n'
+            +' }\n'
+            +'.syntaxhighlighter .toolbar {\n'
+            +'  background-color: #EEEEEE !important; \n'
+            +'  border: 2px solid #999988 !important; \n'
+            +' }\n'
+            +'.syntaxhighlighter code {\n'
+            +'  font-family:	monospace !important; \n'
+            +'  font-size:	12px !important; \n'
+            +'  font-style:	normal !important; \n'
+            +'  font-weigth:	400 !important; \n'
+            +'}\n');
+            
       link3.appendChild(csst);
       head.appendChild(link3);
 
