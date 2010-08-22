@@ -6,9 +6,12 @@ user-scripts
 
 INSTALLATION
 ============
+* http://github.com/matthiasries/cpan-greasemoney/raw/master/cpan_syntaxhighlighter_classic.user.js
 
-First install the GreaseMonkey-Plugin from adons-mozilla
-
+DEPEDENCIES
+============
+* Firefox >3
+* GreaseMonkey ( https://addons.mozilla.org/ )
 
 AUTHOR
 ======
