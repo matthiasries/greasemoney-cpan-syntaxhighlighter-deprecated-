@@ -25,9 +25,15 @@ function() {
         
                 
         var pres = document.getElementById("cpansearch").getElementsByTagName("pre");
-        
+        var ahrefs;
 	for ( c in pres ){
                pres[c].setAttribute("class", "brush: perl");
+	       ahrefs = pres[c].getElementsByTagName("a");
+		for ( ac in ahrefs ){
+			var link2text = document.createTextNode("http://userscripts.org/scripts/issues/80731");
+			link2text.textContent = ahrefs[ac].href;
+			pres[c].replaceChild( link2text, ahrefs[ac] );
+		}
         };
         
       var head = document.getElementsByTagName("head")[0];
@@ -38,14 +44,14 @@ function() {
       link.href = uri_to_styles + "shCore.css";
       head.appendChild(link);
       
-      var link2  = document.createElement('link');
-      link2.rel  = 'stylesheet';
-      link2.type = 'text/css';
-      link2.href = uri_to_styles + "shThemeDefault.css";
-      head.appendChild(link2);
+      link  = document.createElement('link');
+      link.rel  = 'stylesheet';
+      link.type = 'text/css';
+      link.href = uri_to_styles + "shThemeDefault.css";
+      head.appendChild(link);
       
-      var link3  = document.createElement('style');
-      link3.setAttribute("type", "text/css");
+      link  = document.createElement('style');
+      link.setAttribute("type", "text/css");
       var csst = document.createTextNode( 
          ' div .lines { \n'
         +'   border: 1px solid rgb(153, 153, 136) ! important; \n'
@@ -87,25 +93,24 @@ function() {
             +'  font-weigth:	400 !important; \n'
             +'}\n');
             
-      link3.appendChild(csst);
-      head.appendChild(link3);
+      link.appendChild(csst);
+      head.appendChild(link);
 
       var sc  =  document.createElement('script');
       sc.type =  'text/javascript';
       sc.src  =  uri_to_scripts + "shCore.js";
-      
-      var sc2  = document.createElement('script');
-      sc2.type = 'text/javascript';
-      sc2.src  = uri_to_scripts + "shBrushPerl.js";
-            
       head.appendChild(sc);
-      head.appendChild(sc2);
+
+      sc  = document.createElement('script');
+      sc.type = 'text/javascript';
+      sc.src  = uri_to_scripts + "shBrushPerl.js";
+      head.appendChild(sc);
 
 
 
-	var sc3 = document.createElement('script');
-        sc3.type = 'text/javascript';
-	sc3.innerHTML = "\
+	sc = document.createElement('script');
+        sc.type = 'text/javascript';
+	sc.innerHTML = "\
 	function initSyntaxHighlighter() {\
 	SyntaxHighlighter.config.clipboardSwf = '" + uri_to_scripts + "clipboard.swf';\
 	SyntaxHighlighter.all();\
@@ -113,13 +118,15 @@ function() {
 	if ('function' == typeof(mtAttachEvent)) mtAttachEvent('load',initSyntaxHighlighter);\
 	else window.onload = initSyntaxHighlighter;\
 	";
-	head.appendChild(sc3);
+	head.appendChild(sc);
 
 	// load 
-	var sc4=document.createElement('script');
-	sc4.type = 'text/javascript';
-	sc4.innerHTML = "SyntaxHighlighter.all();";
-	head.appendChild(sc4);
+	sc = document.createElement('script');
+	sc.type = 'text/javascript';
+	sc.innerHTML = "SyntaxHighlighter.defaults['auto-links']  = true ;\n"
+                     + "SyntaxHighlighter.all();\n"
+		     ;
+	head.appendChild(sc);
 	
 document.close();
 })();
