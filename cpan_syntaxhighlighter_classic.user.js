@@ -10,10 +10,10 @@
 //
 // ==UserScript==
 // @name        CPAN SyntaxHighlighter Classic 
-// @version     1.0.4  (19. Aug 20010 )
+// @version     1.0.5  (05. March 2011 )
 // @author      Matthias, Ries
 // @namespace   http://github.com/matthiasries/cpan-greasemoney
-// @description SyntaxHighlight the search.cpan.org pages. Classic-Theme
+// @description SyntaxHighlight the search.cpan.org pages. And uses a the traditional Color Scheme
 // @include     http://search.cpan.org/*
 // ==/UserScript==
 
@@ -24,7 +24,7 @@ function() {
 	var uri_to_styles  = "http://alexgorbatchev.com/pub/sh/2.0.320/styles/";
         
                 
-        var pres = document.getElementsByTagName("pre");
+        var pres = document.getElementById("cpansearch").getElementsByTagName("pre");
         
 	for ( c in pres ){
                pres[c].setAttribute("class", "brush: perl");
