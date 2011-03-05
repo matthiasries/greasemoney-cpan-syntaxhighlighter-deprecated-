@@ -10,7 +10,7 @@
 //
 // ==UserScript==
 // @name        CPAN SyntaxHighlighter Classic 
-// @version     1.0.5  (05. March 2011 )
+// @version     1.0.6  (05. March 2011 )
 // @author      Matthias, Ries
 // @namespace   http://github.com/matthiasries/cpan-greasemoney
 // @description SyntaxHighlight the search.cpan.org pages. And uses a the traditional Color Scheme
