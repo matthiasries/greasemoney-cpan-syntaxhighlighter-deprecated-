@@ -31,8 +31,8 @@ function() {
 	       ahrefs = pres[c].getElementsByTagName("a");
 		for ( ac in ahrefs ){
 			var link2text = document.createTextNode("http://userscripts.org/scripts/issues/80731");
-			link2text.textContent = ahrefs[ac].href;
-			pres[c].replaceChild( link2text, ahrefs[ac] );
+			link2text.textContent = ahrefs[0].href;
+			pres[c].replaceChild( link2text, ahrefs[0] );
 		}
         };
         
